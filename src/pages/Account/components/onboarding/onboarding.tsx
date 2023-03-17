@@ -40,15 +40,14 @@ const Onboarding: OnboardingComponent = ({
     }
   }, []);
 
-
   return (
     <Box sx={{ padding: 2 }}>
       <CardContent>
         <Typography variant="h3" gutterBottom>
-          Welcome to Smart Wallet
+          Welcome to Bundler.fi
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Requesting ZK Proof
+          Request ZK Proof
         </Typography>
       </CardContent>
       <CardActions sx={{ pl: 4, pr: 4, width: '100%' }}>

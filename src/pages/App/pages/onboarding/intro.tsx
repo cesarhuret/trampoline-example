@@ -37,7 +37,7 @@ const Intro = () => {
       >
         <CardContent>
           <Typography textAlign="center" variant="h3" gutterBottom>
-            Start your eth journey
+            Start your abstract journey
           </Typography>
           <Typography textAlign="center" variant="body1" color="text.secondary">
             Your smart contract account with unlimited possibilities,{' '}
@@ -57,7 +57,7 @@ const Intro = () => {
             color="text.secondary"
             gutterBottom
           >
-            Ethereum Foundation
+            Bundler.fi
           </Typography>
         </CardContent>
         <CardActions sx={{ pl: 4, pr: 4, width: '100%' }}>
