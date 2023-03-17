@@ -4,9 +4,15 @@ import StoreIcon from '@mui/icons-material/Store';
 import { Avatar, Stack, Tooltip, Typography, useTheme } from '@mui/material';
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 import { ethers } from 'ethers';
+import {
+  useSetTransactionValue,
+  useTransactionValue,
+} from '../../context/TransactionContext';
 
 const TransferAssetButton = ({ activeAccount }: { activeAccount: string }) => {
   const theme = useTheme();
+  const transactionValue = useTransactionValue();
+  const setTransactionValue = useSetTransactionValue();
 
   const sendMoney = useCallback(async () => {
     console.log('did we come here?', window.ethereum);
@@ -21,6 +27,7 @@ const TransferAssetButton = ({ activeAccount }: { activeAccount: string }) => {
             from: activeAccount,
             to: ethers.constants.AddressZero,
             data: '0x',
+            value: transactionValue,
           },
         ],
       });

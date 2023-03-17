@@ -40,6 +40,10 @@ import { EthersTransactionRequest } from '../../../Background/services/types';
 import AccountInfo from '../../components/account-info';
 import OriginInfo from '../../components/origin-info';
 import Config from '../../../../exconfig.json';
+import {
+  useSetTransactionValue,
+  useTransactionValue,
+} from '../../../App/context/TransactionContext';
 
 const SignTransactionComponent =
   AccountImplementations[ActiveAccountImplementation].Transaction;
@@ -66,6 +70,8 @@ const SignTransactionConfirmation = ({
   const [showAddPaymasterUI, setShowAddPaymasterUI] = useState<boolean>(false);
   const [addPaymasterLoader, setAddPaymasterLoader] = useState<boolean>(false);
   const [paymasterUrl, setPaymasterUrl] = useState<string>('');
+  const transactionValue = useTransactionValue();
+  const setTransactionValue = useSetTransactionValue();
 
   const addPaymaster = () => {
     setAddPaymasterLoader(true);
@@ -151,7 +157,23 @@ const SignTransactionConfirmation = ({
               <Typography variant="subtitle2" sx={{ mb: 2 }}>
                 To:{' '}
                 <Typography component="span" variant="body2">
-                  <pre className="sign-message-pre-tag">{transaction.to}</pre>
+                  <input
+                    required
+                    placeholder=""
+                    onChange={(e) => {
+                      setTransactionValue(e.target.value);
+                      console.log('e.target.value', e.target.value);
+                    }}
+                  />{' '}
+                  <pre className="sign-message-pre-tag">
+                    <pre className="sign-message-pre-tag">
+                      Ox8448
+                      {transaction.value
+                        ? ethers.utils.formatEther(transaction.value)
+                        : transactionValue}{' '}
+                      {activeNetwork.baseAsset.symbol}
+                    </pre>
+                  </pre>
                 </Typography>
               </Typography>
               <Typography variant="subtitle2" sx={{ mb: 2 }}>

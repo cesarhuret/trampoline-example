@@ -9,6 +9,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { HashRouter } from 'react-router-dom';
+import { TransactionProvider } from '../App/context/TransactionContext';
 
 const store = new Store();
 
@@ -26,11 +27,13 @@ store
     if (container) {
       const root = createRoot(container); // createRoot(container!) if you use TypeScript
       root.render(
-        <Provider store={store}>
-          <HashRouter>
-            <App />
-          </HashRouter>
-        </Provider>
+        <TransactionProvider>
+          <Provider store={store}>
+            <HashRouter>
+              <App />
+            </HashRouter>
+          </Provider>
+        </TransactionProvider>
       );
     }
   })
