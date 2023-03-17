@@ -44,7 +44,8 @@ const Onboarding: OnboardingComponent = ({
     // The `request` function sends your user to the Sismo Data Vault App
     // to generate the proof of Data Vault ownerhsip.
     zkConnect.request({
-      callbackPath: "chrome-extension://khdbbdjjghoinfjjiobldgppdemjkomi/app.html"
+      callbackPath:
+        'chrome-extension://khdbbdjjghoinfjjiobldgppdemjkomi/app.html',
     });
   };
 
@@ -52,10 +53,10 @@ const Onboarding: OnboardingComponent = ({
     <Box sx={{ padding: 2 }}>
       <CardContent>
         <Typography variant="h3" gutterBottom>
-          Welcome to Smart Wallet
+          Welcome to Bundler.fi
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Requesting ZK Proof
+          Request ZK Proof
         </Typography>
       </CardContent>
       <CardActions sx={{ pl: 4, pr: 4, width: '100%' }}>
